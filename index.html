@@ -162,42 +162,42 @@ font-weight: 600;
 // }
 
 
-        const login = async (userName, password) => {
-            try {
-                const response = await fetch("./loginpage.json");
-                if (!response.ok) {
-                    throw new Error('Failed to fetch');
-                }
-                const data = await response.json();
-                const users = data.users;
-                if (!Array.isArray(users)) {
-                    throw new Error('User data is not in expected data format');
-                }
-                const user = users.find(user => user.name === userName && user.password === password);
-                if (user) {
-                    return user;
-                } else {
-                    throw new Error("Invalid username or password");
-                }
-            } catch (error) {
-                throw error;
-            }
-        };
+        // const login = async (userName, password) => {
+        //     try {
+        //         const response = await fetch("./loginpage.json");
+        //         if (!response.ok) {
+        //             throw new Error('Failed to fetch');
+        //         }
+        //         const data = await response.json();
+        //         const users = data.users;
+        //         if (!Array.isArray(users)) {
+        //             throw new Error('User data is not in expected data format');
+        //         }
+        //         const user = users.find(user => user.name === userName && user.password === password);
+        //         if (user) {
+        //             return user;
+        //         } else {
+        //             throw new Error("Invalid username or password");
+        //         }
+        //     } catch (error) {
+        //         throw error;
+        //     }
+        // };
 
-        document.getElementById("loginButton").addEventListener("click", async (e) => {
-            e.preventDefault();
-            let userName = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            try {
-                let user = await login(userName, password);
-                console.log("User logged in: ", user);
-                alert("Successfully logged In");
-                window.location.href="task.html"
-            } catch (error) {
-                console.log("Login error: ", error.message);
-                alert("Invalid UserName or Password")
-            }
-        });
+        // document.getElementById("loginButton").addEventListener("click", async (e) => {
+        //     e.preventDefault();
+        //     let userName = document.getElementById("email").value;
+        //     let password = document.getElementById("password").value;
+        //     try {
+        //         let user = await login(userName, password);
+        //         console.log("User logged in: ", user);
+        //         alert("Successfully logged In");
+        //         window.location.href="task.html"
+        //     } catch (error) {
+        //         console.log("Login error: ", error.message);
+        //         alert("Invalid UserName or Password")
+        //     }
+        // });
     </script>
 </script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
